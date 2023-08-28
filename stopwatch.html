@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stopwatch</title>
+        <link rel="stylesheet" href="stopwatch.css">
+    </head>
+    <body>
+        <div class="stopwatch">
+            <h1 id="display-time">
+                00:00:00
+            </h1>
+            <div class="buttons">
+                <button onclick="watchstop()">Stop</button>
+                <button onclick="watchstart()">Start</button>                
+                <button onclick="watchreset()">Reset</button>
+            </div>
+        </div>
+        <script>
+            let [seconds, minutes, hours] = [0, 0, 0];  //creating array
+            let timer = null;
+            let displaytime = document.getElementById("display-time");
+
+            function stopwatch() {      //function for stopwatch
+                seconds++;
+                if (seconds == 60) {
+                    seconds = 0;
+                    minutes++;
+                    if (minutes == 60) {
+                        minutes = 0;
+                        hours++;
+                    }
+                }
+                displaytime.innerHTML =
+                    (hours < 10 ? "0" : "") + hours + ":" +
+                    (minutes < 10 ? "0" : "") + minutes + ":" +
+                    (seconds < 10 ? "0" : "") + seconds;
+            }
+
+            function watchstart() {
+                if (timer !== null) {              // we have to execute stopwatch every sec so we have to use time interval
+                    clearInterval(timer);
+                }
+                timer = setInterval(stopwatch, 1000);
+            }
+            function watchstop(){
+                clearInterval(timer);
+            }
+            function watchreset(){
+                clearInterval(timer);
+                [seconds, minutes, hours] = [0, 0, 0];
+                displaytime.innerHTML="00:00:00";
+            }
+        </script>
+    </body>
+</html>
