@@ -1,0 +1,13 @@
+body {
+   background-image: url("https://img.freepik.com/premium-photo/cooking-banner-kitchen-black-table-ingredients-food-top-view-free-space-your-text_187166-59583.jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+h1 {
+    color: whitesmoke; 
+    font-size: 36px; 
+    font-weight: bold; 
+    text-align: left; 
+    text-transform: uppercase; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5}
